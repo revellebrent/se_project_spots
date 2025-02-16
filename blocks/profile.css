@@ -21,10 +21,12 @@
   font-size: 32px;
   font-weight: 500;
   line-height: 1;
+  color: #212121;
 }
 
 .profile__description {
   margin: 12px 0 0;
+  color: #212121;
   opacity: 70%;
   font-size: 16px;
   font-weight: 500;
@@ -41,9 +43,10 @@
   line-height: 1;
   padding: 0;
   text-align: left;
+  cursor: pointer;
 }
 
-.profile__edit-button img {
+.profile__edit-button-icon {
   margin-right: 8px;
 }
 
@@ -58,14 +61,16 @@
   color: #fff;
   width: 149px;
   height: 52px;
+  border: none;
   border-radius: 8px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
   padding: 0;
+  cursor: pointer;
 }
 
-.profile__add-button img {
+.profile__add-button-icon {
   margin-right: 8px;
 }
 
@@ -96,10 +101,19 @@
     margin: 12px 0 0;
     font-size: 20px;
     line-height: 1;
+    color: #212121;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 275px;
   }
 
   .profile__description {
     margin: 6px 0 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 275px;
   }
 
   .profile__edit-button {

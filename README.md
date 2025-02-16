@@ -6,13 +6,17 @@ An image sharing site.
 
 This project is made so all the elements are displayed correctly on popular screen sizes. Websites will view the page with images in rows of 3 images while tablets will view 2 images in a row and mobile devices will view single images in a row.
 
+## Overview Video
+
+- [Video]
+
 ## Tech Stack
 
 - HTML
 - CSS
 - Responsive Design
 
-## Desployment
+## Deployment
 
 This webpage is deployed to GitHub Pages
 
