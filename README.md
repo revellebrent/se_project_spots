@@ -8,7 +8,7 @@ This project is made so all the elements are displayed correctly on popular scre
 
 ## Overview Video
 
-- [Video]
+- [Video](https://www.icloud.com/iclouddrive/01bwE0MuuMuzColdqsrjbZ0fw#Desktop_2025.02.16_-_14.23.33.15)
 
 ## Tech Stack
 
