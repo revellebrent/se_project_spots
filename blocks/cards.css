@@ -10,7 +10,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, 413px);
   justify-content: center;
-  /* gap: 40px 20px; */
   column-gap: 20px;
 }
 
