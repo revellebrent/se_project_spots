@@ -46,7 +46,7 @@
   cursor: pointer;
 }
 
-.profile__edit-button-icon {
+.profile__edit-icon {
   margin-right: 8px;
 }
 
@@ -70,7 +70,7 @@
   cursor: pointer;
 }
 
-.profile__add-button-icon {
+.profile__add-icon {
   margin-right: 8px;
 }
 
