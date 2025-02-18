@@ -51,14 +51,14 @@
 }
 
 .profile__edit-button:hover {
-  opacity: unset;
+  opacity: 1;
 }
 
 .profile__add-button {
   margin-left: auto;
   margin-top: auto;
   background-color: #212121;
-  color: #fff;
+  color: #fcf5e5;
   width: 149px;
   height: 52px;
   border: none;
