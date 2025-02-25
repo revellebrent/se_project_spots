@@ -1,0 +1,132 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  padding: 0 16px;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__container {
+  background: #fff;
+  max-width: 730px;
+  width: 100%;
+  padding: 32px 50px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  position: relative;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: 32px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  background: url(../images/close.svg) no-repeat center;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  color: #212121;
+  opacity: 0.4;
+}
+
+.modal__close-button:hover {
+  opacity: 1;
+}
+
+.modal__title {
+  margin: 0 0 32px;
+  font-size: 32px;
+  line-height: 1;
+  color: #212121;
+  font-weight: 500;
+}
+
+.modal__label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 17.6px;
+  color: #212121;
+  opacity: 70%;
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+.modal__input {
+  border: 1px solid rgba(33, 33, 33, 0.3);
+  border-radius: 8px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 16px 12px;
+}
+
+.modal__input::placeholder {
+  color: rgba(33, 33, 33, 0.3);
+  /* opacity: 40%; */
+}
+
+.modal__input:hover {
+  border: 1px solid rgba(33, 33, 33, 1);
+}
+
+.modal__submit-button {
+  width: 156px;
+  height: 52px;
+  padding: 18px 0;
+  background: #212121;
+  color: #fcf5e5;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 627px) {
+  .modal {
+    padding: 0 10px;
+  }
+
+  .modal__container {
+    padding: 12px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+    margin: 10px 0 34px;
+  }
+
+  .modal__close-button {
+    top: 12px;
+    right: 12px;
+  }
+
+  .modal__label {
+    margin-bottom: 24px;
+  }
+
+  .modal__input {
+    font-size: 16px;
+  }
+
+  .modal__submit-button {
+    width: 100%;
+  }
+}
