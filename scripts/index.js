@@ -50,14 +50,18 @@ function getCardElement(data) {
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
 
   return cardElement;
 }
 
-function openModal() {
+function fillProfileForm() {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
+}
 
+function openModal() {
+  fillProfileForm();
   editModal.classList.add("modal_opened");
 }
 
