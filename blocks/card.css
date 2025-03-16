@@ -29,7 +29,16 @@
   opacity: 1;
 }
 
-.card__title {
+.card__like-button_liked {
+  background-image: url(../images/redhearticon.svg);
+  opacity: 1;
+}
+
+.card__like-button_liked:hover {
+  background-image: url(../images/pinkhearticon.svg);
+}
+
+.card .card__title {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
