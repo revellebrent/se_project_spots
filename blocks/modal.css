@@ -163,9 +163,15 @@ bn .modal__input:hover {
     max-width: 288px;
   }
 
+  .modal__close_type_preview {
+    right: 0;
+    top: -45px;
+  }
+
   .modal__caption {
     font-size: 16px;
     line-height: 1.2;
+    max-width: 288px;
   }
 
   .modal__title {
