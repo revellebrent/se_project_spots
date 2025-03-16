@@ -5,17 +5,21 @@
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.5s ease-in-out 0s, opacity 0.5s linear;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  visibility: hidden;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   padding: 0 16px;
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
+  transition: visibility 0.5s ease-in-out 0s, opacity 0.5s linear;
 }
 
 .modal__container {
