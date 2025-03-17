@@ -54,13 +54,11 @@ const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const previewModalCloseButton = previewModal.querySelector(".modal__close");
 
 const cardTemplate = document.querySelector("#card-template");
+const cardTemplateElement = cardTemplate.content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
 
 function getCardElement(data) {
-  const cardElement = cardTemplate.content
-    .querySelector(".card")
-    .cloneNode(true);
-
+  const cardElement = cardTemplateElement.cloneNode(true);
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
   const likeButton = cardElement.querySelector(".card__like-button");
@@ -70,24 +68,24 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
 
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_liked");
-  });
-
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  cardImageEl.addEventListener("click", () => {
-    openModal(previewModal);
-
-    previewModalImageEl.src = data.link;
-    previewModalImageEl.alt = data.name;
-    previewModalCaptionEl.textContent = data.name;
-  });
-
   return cardElement;
 }
+
+function handleCardInteractions(evt) {
+  if (evt.target.classList.contains("card__like-button")) {
+    evt.target.classList.toggle("card__like-button_liked");
+  } else if (evt.target.classList.contains("card__delete-button")) {
+    const cardElement = evt.target.closest(".card");
+    cardElement.remove();
+  } else if (evt.target.classList.contains("card__image")) {
+    previewModalImageEl.src = evt.target.src;
+    previewModalImageEl.alt = evt.target.alt;
+    previewModalCaptionEl.textContent = evt.target.alt;
+    openModal(previewModal);
+  }
+}
+
+cardsList.addEventListener("click", handleCardInteractions); //
 
 function fillProfileForm() {
   editModalNameInput.value = profileName.textContent;
@@ -111,8 +109,6 @@ function handleEditFormSubmit(evt) {
 
 function handleAddCardFormSubmit(event) {
   event.preventDefault();
-  console.log("cardNameInput.value", cardNameInput.value);
-  console.log("cardLinkInput.value", cardLinkInput.value);
 
   const inputValues = {
     name: cardNameInput.value,
@@ -126,11 +122,10 @@ function handleAddCardFormSubmit(event) {
 }
 
 profileEditButton.addEventListener("click", () => {
-  editModalNameInput.value = profileName.textContent;
-  editModalDescriptionInput.value = profileDescription.textContent;
   fillProfileForm();
   openModal(editModal);
 });
+
 editModalCloseButton.addEventListener("click", () => {
   closeModal(editModal);
 });

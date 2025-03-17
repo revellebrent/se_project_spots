@@ -59,7 +59,7 @@
   opacity: 0.4;
 }
 
-.modal__close_type_preview {
+.modal__close_preview-btn {
   background-image: url(../images/whitecloseicon.svg);
   top: 0;
   right: -52.5px;
@@ -72,6 +72,10 @@
   cursor: pointer;
   position: absolute;
   background-color: transparent;
+}
+
+.modal__close_preview-btn:hover {
+  background-image: url(../images/graycloseicon.svg);
 }
 
 .modal__caption {
@@ -109,7 +113,7 @@
   font-size: 16px;
   line-height: 17.6px;
   color: #212121;
-  opacity: 70%;
+  opacity: 0.7;
   margin-bottom: 32px;
   font-weight: 500;
 }
@@ -126,9 +130,9 @@
 
 .modal__input::placeholder {
   color: rgba(33, 33, 33, 0.3);
-  /* opacity: 40%; */
 }
-bn .modal__input:hover {
+
+.modal__input:hover {
   border: 1px solid rgba(33, 33, 33, 1);
 }
 
@@ -147,7 +151,7 @@ bn .modal__input:hover {
 }
 
 .modal__submit-button:hover {
-  opacity: 80%;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 627px) {
@@ -163,7 +167,7 @@ bn .modal__input:hover {
     max-width: 288px;
   }
 
-  .modal__close_type_preview {
+  .modal__close_preview-btn {
     right: 0;
     top: -45px;
   }
@@ -171,7 +175,10 @@ bn .modal__input:hover {
   .modal__caption {
     font-size: 16px;
     line-height: 1.2;
-    max-width: 288px;
+    max-width: 270px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
 
   .modal__title {
