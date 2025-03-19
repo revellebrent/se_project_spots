@@ -75,7 +75,7 @@
 }
 
 .modal__close_preview-btn:hover {
-  background-image: url(../images/graycloseicon.svg);
+  opacity: 0.4;
 }
 
 .modal__caption {
