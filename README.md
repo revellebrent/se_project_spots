@@ -4,7 +4,7 @@ An image sharing site.
 
 ## Description
 
-This project is made so all the elements are displayed correctly on popular screen sizes. Websites will view the page with images in rows of 3 images while tablets will view 2 images in a row and mobile devices will view single images in a row.
+This project is made so all the elements are displayed correctly on popular screen sizes. Websites will view the page with images in rows of 3 images while tablets will view 2 images in a row and mobile devices will view single images in a row. Submit new images with captions. "Like" the images, or delete images with a click of a button.
 
 ## Overview Video
 
@@ -12,6 +12,7 @@ This project is made so all the elements are displayed correctly on popular scre
 
 ## Tech Stack
 
+- JavaScript
 - HTML
 - CSS
 - Responsive Design
