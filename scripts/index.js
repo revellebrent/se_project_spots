@@ -119,7 +119,7 @@ function handleAddCardFormSubmit(event) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   closeModal(addModal);
-  disableButton(cardSubmitBtn);
+  disableButton(cardSubmitBtn, settings);
   cardForm.reset();
 }
 
@@ -142,6 +142,13 @@ cardModalCloseButton.addEventListener("click", () => {
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 }); //close preview modal
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
+  }
+});
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardFormSubmit);
