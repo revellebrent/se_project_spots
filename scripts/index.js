@@ -141,14 +141,24 @@ cardModalCloseButton.addEventListener("click", () => {
 
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
-}); //close preview modal
+});
 
-document.addEventListener("keydown", (evt) => {
+// Updated function to handle Escape key
+function handleEscKey(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
-    closeModal(openedModal);
+    if (openedModal) {
+      closeModal(openedModal);
+    }
   }
-});
+}
+
+// updated function to handle overlay click
+function handleOverlayClick(evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
+  }
+}
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardFormSubmit);
@@ -156,4 +166,12 @@ cardForm.addEventListener("submit", handleAddCardFormSubmit);
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
+});
+
+// updated event listener for Escape key
+document.addEventListener("keydown", handleEscKey);
+
+// updated event listener for overlay click
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("click", handleOverlayClick);
 });
