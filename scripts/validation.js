@@ -72,4 +72,13 @@ const enableValidation = (config) => {
   });
 };
 
+const resetValidation = (formEl, config) => {
+  const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
+  const buttonElement = formEl.querySelector(config.submitButtonSelector);
+  inputList.forEach((inputElement) => {
+    hideInputError(formEl, inputElement, config);
+  });
+  disableButton(buttonElement, config);
+};
+
 enableValidation(settings);
