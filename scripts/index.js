@@ -35,7 +35,7 @@ const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
-const editFormElement = editModal.querySelector(".modal__form");
+const editFormElement = document.forms["edit-profile"]; // Modified
 const editModalCloseButton = editModal.querySelector(".modal__close-button");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
@@ -43,7 +43,7 @@ const editModalDescriptionInput = editModal.querySelector(
 );
 
 const addModal = document.querySelector("#add-card-modal");
-const cardForm = addModal.querySelector(".modal__form");
+const cardForm = document.forms["add-card-form"]; // Modified
 const cardSubmitBtn = addModal.querySelector(".modal__submit-button");
 const cardModalCloseButton = addModal.querySelector(".modal__close-button");
 const cardNameInput = addModal.querySelector("#add-card-name-input");
@@ -95,10 +95,12 @@ function fillProfileForm() {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscKey); // added
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscKey); // added
 }
 
 function handleEditFormSubmit(evt) {
@@ -116,16 +118,16 @@ function handleAddCardFormSubmit(event) {
     link: cardLinkInput.value,
   };
 
-  const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
+  renderCard(inputValues, "prepend"); // Modified to use the new function
+
   closeModal(addModal);
-  disableButton(cardSubmitBtn, settings);
   cardForm.reset();
+  resetValidation(cardForm, settings); // added and modified
 }
 
 profileEditButton.addEventListener("click", () => {
   fillProfileForm();
-  resetValidation(editModal, settings); // added
+  resetValidation(editFormElement, settings); // added and modified
   openModal(editModal);
 });
 
@@ -134,10 +136,9 @@ editModalCloseButton.addEventListener("click", () => {
 });
 
 cardModalButton.addEventListener("click", () => {
-  cardForm.reset(); // added
-  resetValidation(addModal, settings); // added
-  openModal(addModal);
+  openModal(addModal); // Modified
 });
+
 cardModalCloseButton.addEventListener("click", () => {
   closeModal(addModal);
 });
@@ -166,13 +167,12 @@ function handleOverlayClick(evt) {
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardFormSubmit);
 
-initialCards.forEach((item) => {
-  const cardElement = getCardElement(item);
-  cardsList.append(cardElement);
-});
+function renderCard(item, method = "prepend") {
+  const cardElement = getCardElement(item); // Modified
+  cardsList[method](cardElement);
+}
 
-// updated event listener for Escape key
-document.addEventListener("keydown", handleEscKey);
+initialCards.forEach((item) => renderCard(item, "append")); // Modified
 
 // updated event listener for overlay click
 document.querySelectorAll(".modal").forEach((modal) => {
