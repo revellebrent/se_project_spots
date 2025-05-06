@@ -81,10 +81,4 @@ export const resetValidation = (formEl, config) => {
   disableButton(buttonElement, config);
 };
 
-// enableValidation(settings);
 
-// document.addEventListener("reset", (event) => {
-//   if (event.target.matches(settings.formSelector)) {
-//     resetValidation(event.target, settings);
-//   }
-// }); // added and modified
