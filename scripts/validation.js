@@ -1,4 +1,4 @@
-const settings = {
+export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-button",
@@ -65,14 +65,14 @@ const setEventListeners = (formEl, config) => {
   });
 };
 
-const enableValidation = (config) => {
+export const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
   formList.forEach((formEl) => {
     setEventListeners(formEl, config);
   });
 };
 
-const resetValidation = (formEl, config) => {
+export const resetValidation = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
   inputList.forEach((inputElement) => {
@@ -81,10 +81,10 @@ const resetValidation = (formEl, config) => {
   disableButton(buttonElement, config);
 };
 
-enableValidation(settings);
+// enableValidation(settings);
 
-document.addEventListener("reset", (event) => {
-  if (event.target.matches(settings.formSelector)) {
-    resetValidation(event.target, settings);
-  }
-}); // added and modified
+// document.addEventListener("reset", (event) => {
+//   if (event.target.matches(settings.formSelector)) {
+//     resetValidation(event.target, settings);
+//   }
+// }); // added and modified

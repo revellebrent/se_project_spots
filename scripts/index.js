@@ -1,3 +1,5 @@
+import { enableValidation, settings, resetValidation } from "./validation.js";
+
 const initialCards = [
   {
     name: "Golden Gate Bridge",
@@ -127,8 +129,8 @@ function handleAddCardFormSubmit(event) {
 
 profileEditButton.addEventListener("click", () => {
   fillProfileForm();
-  resetValidation(editFormElement, settings); // added and modified
   openModal(editModal);
+  resetValidation(editFormElement, settings); // added and modified
 });
 
 editModalCloseButton.addEventListener("click", () => {
@@ -167,6 +169,12 @@ function handleOverlayClick(evt) {
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardFormSubmit);
 
+document.addEventListener("reset", (event) => {
+  if (event.target.matches(settings.formSelector)) {
+    resetValidation(event.target, settings);
+  }
+}); // added and modified
+
 function renderCard(item, method = "prepend") {
   const cardElement = getCardElement(item); // Modified
   cardsList[method](cardElement);
@@ -178,3 +186,5 @@ initialCards.forEach((item) => renderCard(item, "append")); // Modified
 document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("click", handleOverlayClick);
 });
+
+enableValidation(settings);
