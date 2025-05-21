@@ -12,12 +12,15 @@ const api = new Api({
 
   api
   .getAppInfo()
-  .then(([cards]) => {
-    console.log(cards);
+  .then(([cards, userInfo]) => {
+    profileName.textContent = userInfo.name;
+    profileDescription.textContent = userInfo.about;
+    // profileAvatar.src = userInfo.avatar;
     cards.forEach((item) => renderCard(item, "append"));
   })
-  .catch(console.error);
-
+  .catch((err) => {
+    console.error(err);
+});
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const cardModalButton = document.querySelector(".profile__add-button");
@@ -95,9 +98,14 @@ function closeModal(modal) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
+  api
+  .editUserInfo({ name: editModalNameInput.value, about: editModalDescriptionInput.value })
+  .then((data) => {
+  profileName.textContent = data.name; //using data argument instead of input values
+  profileDescription.textContent = data.about;
   closeModal(editModal);
+})
+.catch(console.error);
 }
 
 function handleAddCardFormSubmit(event) {
