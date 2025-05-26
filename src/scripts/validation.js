@@ -81,4 +81,4 @@ export const resetValidation = (formEl, config) => {
   disableButton(buttonElement, config);
 };
 
-
+export { disableButton };
